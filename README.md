@@ -10,7 +10,7 @@ The musicxml files must have the vocal part only with syllabic texts on each not
 Using this code, I made this video for the demonstration.
 
 https://youtu.be/uxjGihznG0g
-
+[Thumbnail 1](./images/ZundamonVolcal.pptx.jpg)
 https://youtu.be/RJ6ULlNnVdg
 
 
