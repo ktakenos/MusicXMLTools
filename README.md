@@ -10,7 +10,7 @@ The musicxml files must have the vocal part only with syllabic texts on each not
 Using this code, I made this video for the demonstration.
 
 https://youtu.be/uxjGihznG0g
-<img src="https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg", width=360>
+<img src="https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg", width="360">
 https://youtu.be/RJ6ULlNnVdg
 ![](https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx(1).jpg)
 
