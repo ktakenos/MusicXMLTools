@@ -11,7 +11,7 @@ Using this code, I made this video for the demonstration.
 
 https://youtu.be/uxjGihznG0g
 <p>
- <img src="https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg", width="360px">
+ <img href="https://youtu.be/uxjGihznG0g", src="https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg", width="360px">
 </p>
 https://youtu.be/RJ6ULlNnVdg
 ![](https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx(1).jpg)
