@@ -38,7 +38,7 @@ LoadButton.grid(row=0, column=0, columnspan=2, sticky=Tk.W+Tk.E)
 
 FileEntry = Tk.Entry(root, width=80, justify='left')
 FileEntry.insert(0, 'No Music XML file is Loaded')
-FileEntry.grid(row=0, column=2, columnspan=6, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+FileEntry.grid(row=0, column=2, columnspan=10, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
 
 
 Lyrics=[]
@@ -46,9 +46,13 @@ Seconds=[]
 Keyboards=[]
 Beats=[]
 idxNote=0
+maxNotes=0
 def LoadLyric():
     global InputFileName, fFileLoaded, Lyrics, Seconds, Keyboards, Beats, idxNote, maxNotes
     if(InputFileName!=''):
+        if(maxNotes>0):
+            maxNotes = 0
+            idxNote=0
         tree = ET.parse(InputFileName)
         root = tree.getroot()
         for tempo in root.iter(tag="sound"):
@@ -167,11 +171,13 @@ TextCrossLabel.grid(row=3, column=3, sticky=Tk.W+Tk.E, ipadx=0)
 TextHeightEntry = Tk.Entry(root, width=10, justify='center')
 TextHeightEntry.insert(0, '120')
 TextHeightEntry.grid(row=3, column=4, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
-TextSizeLabel = Tk.Label(root, text='Font size', width=5)
+TextSizeLabel = Tk.Label(root, text='Font size [pt]', width=10)
 TextSizeLabel.grid(row=3, column=5, sticky=Tk.W+Tk.E, ipadx=0)
 TextSizeEntry = Tk.Entry(root, width=5, justify='center')
 TextSizeEntry.insert(0, '96')
 TextSizeEntry.grid(row=3, column=6, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+TextColorLabel = Tk.Label(root, text='Font Color', width=10)
+TextColorLabel.grid(row=3, column=7, sticky=Tk.W+Tk.E, ipadx=0)
 def FontColorChooser():
     global textRGB
     colors=askcolor('#%02x%02x%02x' % (textRGB[0],textRGB[1],textRGB[2]), title='Choose Font Color')
@@ -180,7 +186,7 @@ def FontColorChooser():
     textRGB[2] = colors[0][2]
     FontColorButton.configure(bg=colors[1])
 FontColorButton=Tk.Button(root, text='Color', fg='white', bg='#A0A0A0',  command=FontColorChooser)
-FontColorButton.grid(row=3, column=7, sticky=Tk.W+Tk.E)
+FontColorButton.grid(row=3, column=8, sticky=Tk.W+Tk.E)
 
 
 PositionLabel = Tk.Label(root, text='Lyric Start Position x[0-1]=', width=15)
@@ -188,27 +194,43 @@ PositionLabel.grid(row=4, column=0, columnspan=2, sticky=Tk.W+Tk.E, ipadx=0)
 XPosEntry = Tk.Entry(root, width=10, justify='center')
 XPosEntry.insert(0, '0.5')
 XPosEntry.grid(row=4, column=2, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+PositionLabe2 = Tk.Label(root, text='Max. Beats', width=10)
+PositionLabe2.grid(row=4, column=3, sticky=Tk.W+Tk.E, ipadx=0)
+XBeatsEntry = Tk.Entry(root, width=10, justify='center')
+XBeatsEntry.insert(0, '8')
+XBeatsEntry.grid(row=4, column=4, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
 YPosLabel = Tk.Label(root, text='y[0-1]=', width=5, justify='right')
-YPosLabel.grid(row=4, column=3, sticky=Tk.W+Tk.E, ipadx=0)
+YPosLabel.grid(row=4, column=5, sticky=Tk.W+Tk.E, ipadx=0)
 YPosEntry = Tk.Entry(root, width=10, justify='center')
 YPosEntry.insert(0, '0.1')
-YPosEntry.grid(row=4, column=4, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+YPosEntry.grid(row=4, column=6, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+YMinLabel = Tk.Label(root, text='Min. Tone', width=10, justify='right')
+YMinLabel.grid(row=4, column=7, sticky=Tk.W+Tk.E, ipadx=0)
+YMinEntry = Tk.Entry(root, width=10, justify='center')
+YMinEntry.insert(0, '36')
+YMinEntry.grid(row=4, column=8, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+YMaxLabel = Tk.Label(root, text='Max. Tone', width=10, justify='right')
+YMaxLabel.grid(row=4, column=9, sticky=Tk.W+Tk.E, ipadx=0)
+YMaxEntry = Tk.Entry(root, width=10, justify='center')
+YMaxEntry.insert(0, '60')
+YMaxEntry.grid(row=4, column=10, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
 
-TrajectionLabel = Tk.Label(root, text='Lyric Trajectory Vector x=', width=15)
+
+TrajectionLabel = Tk.Label(root, text='Lyric Trajectory Velocity x=', width=15)
 TrajectionLabel.grid(row=5, column=0, columnspan=2, sticky=Tk.W+Tk.E, ipadx=0)
 XVelEntry = Tk.Entry(root, width=10, justify='center')
 XVelEntry.insert(0, '0.5')
 XVelEntry.grid(row=5, column=2, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
-YVelLabel = Tk.Label(root, text='Vector y=', width=5, justify='right')
+YVelLabel = Tk.Label(root, text='y=', width=5, justify='right')
 YVelLabel.grid(row=5, column=3, sticky=Tk.W+Tk.E, ipadx=0)
 YVelEntry = Tk.Entry(root, width=10, justify='center')
 YVelEntry.insert(0, '2.5')
 YVelEntry.grid(row=5, column=4, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
 GravLabel = Tk.Label(root, text='Gravity Scale [0-1]', width=10, justify='center')
-GravLabel.grid(row=5, column=5, sticky=Tk.W+Tk.E, ipadx=0)
+GravLabel.grid(row=5, column=5, columnspan=2, sticky=Tk.W+Tk.E, ipadx=0)
 GravEntry = Tk.Entry(root, width=10, justify='center')
 GravEntry.insert(0, '0.2')
-GravEntry.grid(row=5, column=6, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
+GravEntry.grid(row=5, column=7, sticky=Tk.W+Tk.E, ipadx=0, padx=0)
 
 VideoLabel = Tk.Label(root, text='Video Max. Length t[sec]=', width=15)
 VideoLabel.grid(row=6, column=0, columnspan=2, sticky=Tk.W+Tk.E, ipadx=0)
@@ -248,7 +270,7 @@ gravity=-9.8*0.2
 
 # ImageLabel = Tk.Label(root, bg='white', fg='black', borderwidth=1, relief="solid")
 ImageLabel = Tk.Label(root)
-ImageLabel.grid(row=7, column=0, columnspan=8, sticky=Tk.NW+Tk.SE)
+ImageLabel.grid(row=7, column=0, columnspan=10, sticky=Tk.NW+Tk.SE)
 Disp_img = MainImg.resize((int(Width/2),int(Height/2)))
 imgtk = ImageTk.PhotoImage(image=Disp_img)
 ImageLabel.imgtk = imgtk
@@ -316,20 +338,26 @@ def InitializeLyricsMotion():
     LyricPosition = np.zeros((maxNotes, 2), np.float32)
     LyricVelocity = np.zeros((maxNotes, 2), np.float32)
     XPos = float(XPosEntry.get())
+    XPosMax = float(XBeatsEntry.get())
     YPos = float(YPosEntry.get())
+    YPosMax = float(YMaxEntry.get())
+    YPosMin = float(YMinEntry.get())
+    YRange = YPosMax - YPosMin
     XVel = float(XVelEntry.get())
     YVel = float(YVelEntry.get())
     for i in range(maxNotes):
         LyricPosition[i, 0] = XPos
         LyricPosition[i, 1] = YPos
-        LyricVelocity[i, 0] = XVel*(Beats[i]/4.0 - XPos)
-        LyricVelocity[i, 1] = YVel*(float(Keyboards[i])/88.0)
+        LyricVelocity[i, 0] = XVel*(Beats[i]/XPosMax - XPos)
+        LyricVelocity[i, 1] = YVel*((float(Keyboards[i])/YRange)-YPos)
         print('index=%04d: %s at position (%3.2f, %3.2f) with vector (%3.2f, %3.2f)' 
               % (i, Lyrics[i], LyricPosition[i, 0], LyricPosition[i, 1], LyricVelocity[i, 0], LyricVelocity[i, 1]))
     FrameScale.set(0)
     global CurrentFrameSec, MainDraw
     CurrentFrameSec=0
     FrameScale.configure(to=float(MaxTEntry.get()))
+    Width = int(WidthEntry.get())
+    Height = int(HeightEntry.get())
     MainDraw.rectangle((0,0, Width, Height), fill=tuple(backgroundRGB))
     Disp_img = MainImg.resize((int(Width/2),int(Height/2)))
     imgtk = ImageTk.PhotoImage(image=Disp_img)
@@ -340,12 +368,13 @@ ScaleReset.grid(row=8, column=0,sticky=Tk.W+Tk.E)
 FrameScale = Tk.Scale(root, orient='horizontal', command=ShowFrame, cursor='arrow', \
                       from_=0, to=maxSeconds, resolution=0.1)
 FrameScale.set(0)
-FrameScale.grid(row=8,column=1, columnspan=7,sticky='ew')
+FrameScale.grid(row=8,column=1, columnspan=10,sticky='ew')
 
 def GenerateMP4():
     global fFileLoaded
     if(fFileLoaded==0):
         return
+    InitializeLyricsMotion()
     global ttfontname, Lyrics, font, backgroundRGB, textRGB, InputFileName
     fontsize = int(TextSizeEntry.get())
     Width = int(WidthEntry.get())
@@ -392,19 +421,21 @@ def GenerateMP4():
         OutFileName= '%s\\temp\\LyricImage%05d.png' % (pathParent, idxFrame)
         MainImg.save(OutFileName)
         MainDraw.rectangle((0,0, Width, Height), fill=tuple(backgroundRGB))
-        ProgressLabel.configure(text='%d' % int(idxFrame/fps))
+        ProgressLabel.configure(text='Progress: %d [s]' % int(idxFrame/fps))
         ProgressLabel.update()
         idxFrame += 1
+    ProgressLabel.configure(text='Converting')
+    ProgressLabel.update()
     CommandStr = 'ffmpeg.exe -y -r 30 -i %s' % pathParent + '\\temp\\LyricImage%05d.png -c:v libx265 -r 30 -pix_fmt yuv420p ' + MP4FileName
     subprocess.call(CommandStr, shell=True)
     CommandStr='del %s\\temp\\*.png' % pathParent
     subprocess.call(CommandStr, shell=True)
     ProgressLabel.configure(text='Finished')
     ProgressLabel.update()
-ConvertButton = Tk.Button(root, text='Generate MP4 File',  command=GenerateMP4)
-ConvertButton.grid(row=10, column=0, columnspan=7, sticky=Tk.W+Tk.E)
+ConvertButton = Tk.Button(root, text='Generate MP4 File', height=2, command=GenerateMP4)
+ConvertButton.grid(row=10, column=0, columnspan=4, sticky=Tk.W+Tk.E)
 ProgressLabel=Tk.Label(root, text='', width= 10)
-ProgressLabel.grid(row=10, column=7)
+ProgressLabel.grid(row=10, column=8, columnspan=3)
 
 
 root.mainloop()
