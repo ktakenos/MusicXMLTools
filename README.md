@@ -2,6 +2,7 @@
 
 ## codes functions (currently only two codes)
 **MusicxmlLyric2MP4.py**
+
 This code runs on python Tkinter
 
 This code converts lyric texts to a mp4 movie where those syllabic texts fly from right to left at their determined beats.
@@ -9,13 +10,14 @@ The musicxml files must have the vocal part only with syllabic texts on each not
 
 
 **Musicxmlpart2FretboardChart.py**
+
 This code runs on python Tkinter
 
 This code converts a guitar part to a fretboard chart that plays the part and also shows fretboard chart of the playing note. Optionally it converts the fretboard chart to a MP4 movie.
 The musicxml files must have a single musical instrument part only.
 
 
-##Examples
+## Examples
 
 Using this code, I made this video for the demonstration.
 
