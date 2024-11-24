@@ -19,7 +19,7 @@ The musicxml files must have a single musical instrument part only.
 
 Using this code, I made this video for the demonstration.
 
-[Link]((https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg)(https://youtu.be/uxjGihznG0g))
+[Link](https://github.com/ktakenos/MusicXMLTools/blob/main/images/ZundamonVocal.pptx.jpg)(https://youtu.be/uxjGihznG0g)
 
 https://youtu.be/uxjGihznG0g
 <p>
