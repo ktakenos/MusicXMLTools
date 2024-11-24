@@ -29,7 +29,7 @@ Using code **MusicxmlLyric2MP4.py**, I made these videos for the demonstration.
 
 Using code **Musicxmlpart2FretboardChart.py**, I made this video for the demonstration.
 
-[![Youtube Video](https://github.com/ktakenos/MusicXMLTools/blob/main/images/GuitarLonlinessBluePlanet-01.pptx(6).jpg)](https://youtu.be/c0aQiXTqQG0)
+[![Youtube Video](https://github.com/ktakenos/MusicXMLTools/blob/main/images/GuitarLonlinessBluePlanet-01.pptx(6).jpg)](https://youtu.be/955YI1p3Z90)
 
 
 
