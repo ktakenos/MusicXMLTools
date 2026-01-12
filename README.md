@@ -1,6 +1,7 @@
 # Tools for musicxml files
 
-## codes functions (currently only two codes)
+## Scropts and their functions
+
 **tab_highway_xml.py**
 
 This code is CLI python script.
