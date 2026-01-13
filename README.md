@@ -1,6 +1,6 @@
 # Tools for musicxml files
 
-## Scropts and their functions
+## Scripts and their functions
 
 **tab_highway_xml.py**
 
@@ -18,6 +18,10 @@ This script reads musicxml file with Guitar/Base Tab notes, and generates a vide
 This script is built using chatGPT.
 
 **GPT_Tab_CanvasUI.py**
+
+This code runs on python Tkinter
+This accepts tab input basically using arrow keys and numeric keys. 
+This script is built using chatGPT.
 
 
 **Musicxml2TabJSON.py**
