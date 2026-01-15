@@ -2,7 +2,7 @@
 
 ## Scripts and their functions
 
-**tab_highway_xml.py**
+**musicxml_lipsynch_mp4.py**
 
 This code is CLI python script.
 This script reads musicxml file with lyrics, and generates a video of your character singing.
