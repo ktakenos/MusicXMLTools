@@ -2,6 +2,15 @@
 
 ## Scripts and their functions
 
+**musicxml_lipsynch_ctrl_mux.py**
+
+This code is CLI python script.
+This script reads musicxml file with lyrics and character eye/head movements, and generates a video of your character singing.
+It requires a set of png files for five vowels, A, I, U, E, and O, and N for closed mouth. They should be stored in the working directory.
+It created a animation mp4 with head tilt, eyes closed, and wink. They are to be written in your musicxml file.
+This script is built using chatGPT.
+
+
 **musicxml_lipsynch_mp4.py**
 
 This code is CLI python script.
